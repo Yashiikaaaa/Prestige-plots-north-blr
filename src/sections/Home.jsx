@@ -78,7 +78,7 @@ export const Home = ({ contactmodal, setContactModal }) => {
                     />
                   </div>
                   <p className="max-w-96 font-body font-semibold text-left text-white md:text-2xl text-sm">
-                    STRR{/* Location name */}
+                    Near the Airport{/* Location name */}
                   </p>
                 </div>
               </div>
