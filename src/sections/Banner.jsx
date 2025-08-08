@@ -46,7 +46,7 @@ export const Navbar = ({ sitevisitmodal, setSiteVisitModal }) => {
         <div className="max-w-8xl mx-auto px-5 lg:px-0 flex flex-wrap items-center justify-between">
           {/* Logo Section */}
           <a href="/" className="flex items-center px-4 md:p-0 space-x-3 rtl:space-x-reverse">
-            <img src={logo} className="h-10 md:h-10" alt="Prestige Plots North Bangalore" />
+            <img src={logo} className="h-10 md:h-10" alt="Prestige Autumn Leaves" />
           </a>
 
           {/* Mobile Menu Toggle Button */}

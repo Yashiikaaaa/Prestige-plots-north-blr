@@ -58,7 +58,7 @@ export const Home = ({ contactmodal, setContactModal }) => {
               <div className="flex gap-4 flex-col w-full">
                 {/* Main Title */}
                 <h1 className="font-subheading text-3xl md:text-6xl font-semibold uppercase">
-                 Prestige North Bangalore
+                 Prestige Autumn Leaves
                 </h1>
 
                 {/* Subtitle */}

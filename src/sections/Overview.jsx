@@ -49,7 +49,7 @@ Prestige’s most anticipated plotted development is launching soon, strategical
           <div className="w-full h-auto flex justify-center border-PrestigeDarkGrey">
             <img
               src={image}
-              alt="Prestige Plots North Bangalore"
+              alt="Prestige Autumn Leaves"
               className=" w-[420px] h-[300px]"
             />
           </div>
