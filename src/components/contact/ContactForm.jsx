@@ -6,6 +6,7 @@ import overlaybg from "../../assets/gallery/14.webp"; // Background image
 import PhoneInput from "react-phone-number-input";
 import "react-phone-number-input/style.css";
 import { isValidPhoneNumber } from "libphonenumber-js";
+import { useLeadTracking, LEAD_SOURCES } from "../../hooks/useLeadTracking";
 
 // Import environment variables
 const trackingId = import.meta.env.VITE_GA_MEASUREMENT_ID;
@@ -30,7 +31,8 @@ const gtag_report_conversion = (url) => {
   }
 };
 
-const ContactForm = ({ contactmodal, setContactModal, setSiteVisitModal }) => {
+const ContactForm = ({ contactmodal, setContactModal,  leadSource }) => {
+  const { trackFormSubmission } = useLeadTracking();
   const [name, setName] = useState("");
   const [number, setNumber] = useState("");
   const [alert, setAlert] = useState(null);
@@ -56,13 +58,6 @@ const ContactForm = ({ contactmodal, setContactModal, setSiteVisitModal }) => {
     const source = params.get("utmsource");
     const medium = params.get("utmMedium");
     const campaign = params.get("utmCampaign");
-
-    ReactGA.send({
-      hitType: "pageview",
-      utmSource: source,
-      utmMedium: medium,
-      utmCampaign: campaign,
-    });
 
     return {
       utmSource: source || "",
@@ -105,6 +100,12 @@ const ContactForm = ({ contactmodal, setContactModal, setSiteVisitModal }) => {
       setLoading(false);
       return;
     }
+
+    trackFormSubmission(
+      leadSource?.source || LEAD_SOURCES.UNKNOWN,
+      "contact_form",
+      leadSource?.propertyType
+    );
 
     setAlert(<FormAlert message="Submitting form..." onClose={() => setAlert(null)} />);
 

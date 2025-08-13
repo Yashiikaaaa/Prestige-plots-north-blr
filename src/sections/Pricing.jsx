@@ -2,14 +2,12 @@ import React, { useState, useEffect } from "react";
 import Button from "../components/button/buttonMain";
 import bhk1 from '../assets/gallery/image5.jpg';
 import bhk2 from '../assets/gallery/image9.png';
-import bhk3 from '../assets/gallery/16.webp';
-import bhk5 from '../assets/gallery/image2.jpg';
-import bhk4 from '../assets/home/HOME.webp';
-import bhk6 from '../assets/gallery/gallery_7.png';
-const Pricing = ({ setContactModal, contactmodal, formSubmitted }) => {
+import { useLeadTracking, LEAD_SOURCES, PROPERTY_TYPES } from '../hooks/useLeadTracking';
+
+const Pricing = ({ openContactModal, formSubmitted }) => {
   const [activeTab, setActiveTab] = useState(0);
   const [isUnlocked, setIsUnlocked] = useState(false);
-
+  const { trackButtonClick } = useLeadTracking();
 
   // Unlock pricing when form is submitted
   useEffect(() => {
@@ -24,11 +22,22 @@ const Pricing = ({ setContactModal, contactmodal, formSubmitted }) => {
   };
 
   const propertyTypes = [
-   
-
-    { type: "2,400 sq.ft ", price: "₹ 3.25 Cr ++",  image: bhk1 },
-    { type: "4,000 sq.ft ", price: "₹ 3.25 Cr ++",  image: bhk2 },
-    // { type: "4 BHK Grande", price: "₹ 3.55 Cr ++", size: "2203 Sq.ft.", image: bhk2 },
+    { 
+      type: "2,400 sq.ft", 
+      price: "₹ 3.25 Cr ++", 
+      size: "2,400 Sq.ft.", 
+      image: bhk1,
+      leadSource: LEAD_SOURCES.PRICING_sqft2400, // or appropriate lead source
+      propertyType: PROPERTY_TYPES.sqft2400
+    },
+    { 
+      type: "4,000 sq.ft", 
+      price: "₹ 3.25 Cr ++", 
+      size: "4,000 Sq.ft.", 
+      image: bhk2,
+      leadSource: LEAD_SOURCES.PRICING_sqft4000, // or appropriate lead source
+      propertyType: PROPERTY_TYPES.sqft4000
+    },
   ];
 
   return (
@@ -67,7 +76,10 @@ const Pricing = ({ setContactModal, contactmodal, formSubmitted }) => {
 
                 <Button
                   text="Get Pricing"
-                  onClick={() => setContactModal(!contactmodal)}
+                  onClick={() => {
+                    trackButtonClick(property.leadSource, 'get_pricing', property.propertyType);
+                    openContactModal(property.leadSource, property.propertyType);
+                  }}
                   className="absolute w-max top-1/2 right-0 transform -translate-y-1/2 px-6 py-3 text-center font-body font-semibold text-sm sm:text-base transition-all duration-300 ease-in-out"
                   showArrow={false}
                 />

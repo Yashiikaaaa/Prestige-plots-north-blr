@@ -3,6 +3,7 @@ import Button from "../components/button/buttonMain"; // Importing the Button co
 import homeLocation from "../assets/home/location.svg"; // Importing location icon
 import { useEffect, useState } from "react";
 // eslint-disable-next-line react/prop-types
+import { useLeadTracking, LEAD_SOURCES } from '../hooks/useLeadTracking';
 
 
 const useIsMobile = () => {
@@ -15,8 +16,9 @@ const useIsMobile = () => {
   return isMobile;
 };
 
-export const Home = ({ contactmodal, setContactModal }) => {
+export const Home = ({ openContactModal }) => {
   const isMobile = useIsMobile();
+  const { trackButtonClick } = useLeadTracking();
   
   // Dynamic container styles
   const containerStyle = {
@@ -86,7 +88,10 @@ export const Home = ({ contactmodal, setContactModal }) => {
               {/* Enquire Now Button using the reusable Button component */}
               <Button
                 text="Enquire Now!"
-                onClick={() => setContactModal(!contactmodal)} // Toggle contact modal on button click
+                onClick={() => {
+                  trackButtonClick(LEAD_SOURCES.HERO, 'enquire_now', 'Hero Banner CTA');
+                  openContactModal(LEAD_SOURCES.HERO);
+                }} // Toggle contact modal on button click
               />
             </div>
           </div>

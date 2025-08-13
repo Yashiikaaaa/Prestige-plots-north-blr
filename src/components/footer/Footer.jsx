@@ -1,9 +1,11 @@
 import React from 'react';
 import Button from '../button/buttonMain';  // Reusable button component
 import contactbanner from '../../assets/footer/footer.webp';
+import { useLeadTracking, LEAD_SOURCES } from '../../hooks/useLeadTracking';
 
 // Footer Component
-export const Footer = ({ contactmodal, setContactModal }) => {
+export const Footer = ({ openContactModal }) => {
+  const { trackButtonClick } = useLeadTracking();
   
   // Styles for the background image
   const opacBackground = {
@@ -37,7 +39,10 @@ export const Footer = ({ contactmodal, setContactModal }) => {
               <Button 
                 text="Fill the form" 
                 className="text-center my-2 md:my-6 h-fit md:py-4 md:px-16 py-3 px-8 w-fit scroll-to-top" 
-                onClick={() => setContactModal(!contactmodal)} 
+                onClick={() =>{ 
+                  trackButtonClick(LEAD_SOURCES.FOOTER, 'fill_form', 'Footer Section CTA');
+                  openContactModal(LEAD_SOURCES.FOOTER);
+                }} 
                 showArrow={false}
               />
             </div>
@@ -64,7 +69,6 @@ export const Footer = ({ contactmodal, setContactModal }) => {
           </div>
         </footer>
       </div>
-
     </div>
   );
 };

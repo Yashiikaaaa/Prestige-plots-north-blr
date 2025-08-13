@@ -1,9 +1,11 @@
 import React from 'react';
 import image from '../assets/gallery/image7.png';
 import Button from '../components/button/buttonMain';
+import { useLeadTracking, LEAD_SOURCES } from '../hooks/useLeadTracking';
 
 // Overview Component
-export const Overview = ({ contactmodal, setContactModal }) => {
+export const Overview = ({ openContactModal }) => {
+  const { trackButtonClick } = useLeadTracking();
   return (
     <div className="bg-PrestigeGrey">
       <section
@@ -38,7 +40,10 @@ Prestige’s most anticipated plotted development is launching soon, strategical
           <Button
                 text="Enquire Now!"
                 className=""
-                onClick={() => setContactModal(!contactmodal)} // Toggle contact modal on button click
+                onClick={() => {
+                  trackButtonClick(LEAD_SOURCES.OVERVIEW, 'enquire_now', 'Overview Section CTA');
+                  openContactModal(LEAD_SOURCES.OVERVIEW);
+                }}
               />
           
         </div>
