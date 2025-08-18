@@ -6,14 +6,23 @@ const getUTMParams = () => {
   if (typeof window === "undefined") return {};
   const urlParams = new URLSearchParams(window.location.search);
 
+  const getParam = (keys) => {
+    for (const key of keys) {
+      const val = urlParams.get(key);
+      if (val) return val;
+    }
+    return null;
+  };
+
   return {
-    utm_source: urlParams.get("utm_source") || null,
-    utm_medium: urlParams.get("utm_medium") || null,
-    utm_campaign: urlParams.get("utm_campaign") || null,
-    utm_term: urlParams.get("utm_term") || null,
-    utm_content: urlParams.get("utm_content") || null,
+    utm_source: getParam(["utm_source", "utmSource"]),
+    utm_medium: getParam(["utm_medium", "utmMedium"]),
+    utm_campaign: getParam(["utm_campaign", "utmCampaign"]),
+    utm_term: getParam(["utm_term", "utmTerm"]),
+    utm_content: getParam(["utm_content", "utmContent"]),
   };
 };
+
 
 export const useLeadTracking = () => {
   const utmParams = getUTMParams();
