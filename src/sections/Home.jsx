@@ -60,12 +60,12 @@ export const Home = ({ openContactModal }) => {
               <div className="flex gap-4 flex-col w-full">
                 {/* Main Title */}
                 <h1 className="font-subheading text-3xl md:text-6xl font-semibold uppercase">
-                 Prestige Autumn Leaves
+                 Prestige Green Brook
                 </h1>
 
                 {/* Subtitle */}
                 <p className="font-body text-white md:text-2xl text-sm font-normal lg:w-4/6 mx-auto lg:mx-0">
-                Premium Plotted Development
+                Premium Plotted Development on IVC Road
                   
                 </p>
               </div>
