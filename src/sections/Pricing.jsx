@@ -23,7 +23,7 @@ const Pricing = ({ openContactModal, formSubmitted }) => {
 
   const propertyTypes = [
     { 
-      type: "2,400 sq.ft", 
+      type: "3,000 sq.ft", 
       price: "₹ 3.25 Cr ++", 
       size: "2,400 Sq.ft.", 
       image: bhk1,

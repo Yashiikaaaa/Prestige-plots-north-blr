@@ -28,7 +28,7 @@ Prestige’s most anticipated plotted development is launching soon, strategical
         <br />    <p>This project offers an unbeatable location, just 9 minutes from ITC Factory on Bellary Road, 15 minutes to Kempegowda International Airport, 20 minutes to Amazon (Horizon Business Park), and 30 minutes to Mall of Asia. It’s nestled amidst premium resorts and greenery, ensuring a tranquil, upscale living experience.
 <p/>
             <br/>
-            <p>Spanning 29 acres, the development features over 200 premium plots with sizes ranging from 2,400 – 4,000 sqft, plus custom sizes available. With the trusted Prestige brand backing this project, you can be assured of long-term value. It’s ideal for building luxury villas in a gated community, and offers excellent potential for appreciation. </p>
+            <p>Spanning 29 acres, the development features over 200 premium plots with sizes ranging from 3000 – 4,000 sqft, plus custom sizes available. With the trusted Prestige brand backing this project, you can be assured of long-term value. It’s ideal for building luxury villas in a gated community, and offers excellent potential for appreciation. </p>
 </p>
 
             
