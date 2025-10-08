@@ -126,7 +126,7 @@ const ContactForm = ({ contactmodal, setContactModal, leadSource }) => {
 
     try {
       const response = await fetch(
-        "https://googleleadsserver.onrender.com/handleMultipleCampaignData",
+        "https://google-campaign-leads-service-dot-iqol-crm.appspot.com",
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
